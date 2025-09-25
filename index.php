@@ -55,5 +55,4 @@
         Digite o multiplicador:
         <input type="number" name="num2" required>
     </form>
-    
 </body>
