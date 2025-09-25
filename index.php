@@ -8,6 +8,31 @@
     <title> Calculadora de Juros</title>
 </head>
 <body>
+    <?php
+        $tipo = $_POST['tipo'] ?? '';
+        if($_POST){
+            if($tipo == "cf" && isset($_POST['valor'])){
+                $c = $_POST['valor'];
+                $fc = ($c * 9/5) + 32;
+                echo "Celsius para Fahrenheit: ".number_format($fc, 2, ",", ".")."<br>";
+            }
+            if($tipo == "fc" && isset($_POST['valor'])){
+                $f = $_POST['valor'];
+                $cf = ($f - 32) * 5/9; 
+                echo "Fahrenheit para Celsius: ".number_format($cf, 2, ",", ".")."<br>"; 
+            }
+        }
+    ?>
+    <?php
+        if($_POST){
+            $c = $_POST['c'];
+            $t = $_POST['t'];
+            $i = $_POST['i'];
+            
+            $juros = $c * ($i/100) * $t;
+            echo "O valor dos juros é: R$ ".number_format($juros, 2, ",", ".");
+        }
+    ?>
 <form method="post">
 
     Qual das opções quer usar?<br>
