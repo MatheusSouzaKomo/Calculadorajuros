@@ -28,9 +28,20 @@
             $c = $_POST['c'];
             $t = $_POST['t'];
             $i = $_POST['i'];
-            
-            $juros = $c * ($i/100) * $t;
-            echo "O valor dos juros é: R$ ".number_format($juros, 2, ",", ".");
+            $j = $_POST['j'];
+
+
+            $j = $c * ($i/100) * $t;
+            echo "O valor dos juros é: R$ ".number_format($j, 2, ",", ".");
+
+            $c = $j / (($i/100) * $t);
+            echo "O valor do capital é: R$ ".number_format($c, 2, ",", ".");
+
+            $i = ($j / ($c * $t)) * 100;
+            echo "O valor da taxa é: ".number_format($i, 2, ",", ".")."%";
+
+            $t = $j / ($c * ($i/100));
+            echo "O valor do tempo é: ".number_format($t, 2, ",", ".")." meses";
         }
     ?>
 <form method="post">
